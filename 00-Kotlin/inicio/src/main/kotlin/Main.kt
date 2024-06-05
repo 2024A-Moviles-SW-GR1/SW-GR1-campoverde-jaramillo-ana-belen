@@ -4,22 +4,22 @@ fun main() {
     println("Hola Mundo")
 
     // INMUTABLES (No se RE ASIGNA "=")
-    val inmutable: String = "Adrian";
+    val inmutable: String = "Ana";
     // inmutable = "Vicente" // Error!
     // MUTABLES
-    var mutable: String = "Vicente"
-    mutable = "Adrian" // Ok
+    var mutable: String = "Belen"
+    mutable = "Ana" // Ok
     // VAL > VAR
 
 
 
     // Duck Typing
-    val ejemploVariable = " Adrian Eguez "
+    val ejemploVariable = " Ana Campoverde "
     ejemploVariable.trim()
     val edadEjemplo: Int = 12
     // ejemploVariable = edadEjemplo // Error!
     // Variables Primitivas
-    val nombreProfesor: String = "Adrian Eguez"
+    val nombreProfesor: String = "Ana Campoverde"
     val sueldo: Double = 1.2
     val estadoCivil: Char = 'C'
     val mayorEdad:Boolean = true
