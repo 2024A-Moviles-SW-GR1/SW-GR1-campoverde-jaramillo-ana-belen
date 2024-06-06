@@ -1,0 +1,5 @@
+Perros;Atención general para perros;2024-01-01;true;5
+Gatos;Atención especializada para gatos;2024-01-15;true;4
+Aves;Cuidado aviar;2024-02-01;false;3
+Reptiles;Cuidado de reptiles y anfibios;2024-03-01;true;2
+Pequeños Mamíferos;Conejos, cobayos y otras mascotas pequeñas;2024-03-15;true;3

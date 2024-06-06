@@ -1,0 +1,2 @@
+Mejores Amigos Vet;Calle Principal 123;555-1234;mejoresamigosvet@example.com;Perros,Atención general para perros,2024-01-01,true,5;Gatos,Atención especializada para gatos,2024-01-15,true,4;Aves,Cuidado aviar,2024-02-01,false,3
+Clínica Patas y Garras;Calle Elm 456;555-5678;patasygarras@example.com;Reptiles,Cuidado de reptiles y anfibios,2024-03-01,true,2;acuatico,Atencion a animales acuaticos,2024-01-01,true,10
