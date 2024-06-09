@@ -11,8 +11,6 @@ fun main() {
     val veterinaryFileName = "veterinaries.txt"
     val specialtyFileName = "specialties.txt"
 
-
-
     Veterinary.readVeterinariesFromFile(veterinaryFileName)
     Specialty.readSpecialtiesFromFile(specialtyFileName)
 
@@ -20,10 +18,11 @@ fun main() {
         println(
             "================= VETERINARY PROGRAM =================\n" +
                     "1. Create veterinary\n" +
-                    "2. Create speciality\n" +
+                    "2. Create specialty\n" +
                     "3. Select veterinary\n" +
-                    "4. Select speciality\n" +
+                    "4. Select specialty\n" +
                     "5. View all veterinaries\n" +
+                    "6. View all specialties\n" + // Nueva opción para ver todas las especialidades
                     "0. Exit\n"
         )
         when (readLine()?.toIntOrNull()) {
@@ -62,8 +61,9 @@ fun main() {
 
                             val specialty = Specialty(specialtyName, description, startDate, active, duration)
                             veterinary.addSpecialty(specialty)
+                            Specialty.addSpecialty(specialty)
+                            Specialty.writeSpecialtiesToFile(specialtyFileName)
                         }
-
                         2 -> {
                             println("List of existing specialties:")
                             Specialty.specialtyList.forEachIndexed { index, specialty ->
@@ -77,7 +77,6 @@ fun main() {
                                 println("Invalid index.")
                             }
                         }
-
                         else -> println("Invalid option.")
                     }
                 }
@@ -96,7 +95,8 @@ fun main() {
                 print("Enter duration (years): ")
                 val duration = readLine()?.toIntOrNull() ?: 0
 
-                Specialty(name, description, startDate, active, duration)
+                val specialty = Specialty(name, description, startDate, active, duration)
+                Specialty.addSpecialty(specialty)
                 Specialty.writeSpecialtiesToFile(specialtyFileName)
             }
             3 -> {
@@ -151,6 +151,8 @@ fun main() {
 
                                     val specialty = Specialty(specialtyName, description, startDate, active, duration)
                                     vet.addSpecialty(specialty)
+                                    Specialty.addSpecialty(specialty)
+                                    Specialty.writeSpecialtiesToFile(specialtyFileName)
                                 }
                                 2 -> {
                                     println("List of existing specialties:")
@@ -217,6 +219,17 @@ fun main() {
                     println("---------------------------------------------------------------------------------")
                     println(veterinary)
                     if (index < Veterinary.veterinaryList.size - 1) {
+                        println()
+                    }
+                }
+                println("=================================================================================\n")
+            }
+            6 -> { // Nueva opción para ver todas las especialidades
+                println("All Specialties:")
+                Specialty.specialtyList.forEachIndexed { index, specialty ->
+                    println("---------------------------------------------------------------------------------")
+                    println("$index. $specialty")
+                    if (index < Specialty.specialtyList.size - 1) {
                         println()
                     }
                 }

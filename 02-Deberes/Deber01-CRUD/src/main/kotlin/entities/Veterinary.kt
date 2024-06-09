@@ -16,6 +16,7 @@ class Veterinary(
         veterinaryList.add(this)
     }
 
+
     fun addSpecialty(specialty: Specialty) {
         specialties.add(specialty)
     }

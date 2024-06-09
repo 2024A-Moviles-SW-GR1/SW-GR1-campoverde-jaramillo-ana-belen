@@ -37,6 +37,10 @@ class Specialty(
                 }
             }
         }
+
+        fun addSpecialty(specialty: Specialty) {
+            specialtyList.add(specialty)
+        }
     }
 
     fun updateSpecialty(attribute: Int, newValue: String): String {
