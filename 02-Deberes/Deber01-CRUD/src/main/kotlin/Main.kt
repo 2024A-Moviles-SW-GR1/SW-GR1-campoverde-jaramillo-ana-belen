@@ -11,6 +11,8 @@ fun main() {
     val veterinaryFileName = "veterinaries.txt"
     val specialtyFileName = "specialties.txt"
 
+
+
     Veterinary.readVeterinariesFromFile(veterinaryFileName)
     Specialty.readSpecialtiesFromFile(specialtyFileName)
 
@@ -35,7 +37,51 @@ fun main() {
                 print("Enter email: ")
                 val email = readLine() ?: ""
 
-                Veterinary(name, address, phoneNumber, email)
+                val veterinary = Veterinary(name, address, phoneNumber, email)
+
+                while (true) {
+                    println("Do you want to add a specialty to this veterinary? (yes/no): ")
+                    if (readLine()?.lowercase() != "yes") break
+
+                    println("Choose an option:")
+                    println("1. Add a new specialty")
+                    println("2. Add an existing specialty")
+
+                    when (readLine()?.toIntOrNull()) {
+                        1 -> {
+                            print("Enter specialty name: ")
+                            val specialtyName = readLine() ?: ""
+                            print("Enter description: ")
+                            val description = readLine() ?: ""
+                            print("Enter start date (yyyy-MM-dd): ")
+                            val startDate = readLine()?.parseDate() ?: LocalDate.now()
+                            print("Is it active? (true/false): ")
+                            val active = readLine()?.toBoolean() ?: true
+                            print("Enter duration (years): ")
+                            val duration = readLine()?.toIntOrNull() ?: 0
+
+                            val specialty = Specialty(specialtyName, description, startDate, active, duration)
+                            veterinary.addSpecialty(specialty)
+                        }
+
+                        2 -> {
+                            println("List of existing specialties:")
+                            Specialty.specialtyList.forEachIndexed { index, specialty ->
+                                println("$index. $specialty")
+                            }
+                            print("Enter the index of the specialty to add: ")
+                            val index = readLine()?.toIntOrNull() ?: -1
+                            if (index in Specialty.specialtyList.indices) {
+                                veterinary.addSpecialty(Specialty.specialtyList[index])
+                            } else {
+                                println("Invalid index.")
+                            }
+                        }
+
+                        else -> println("Invalid option.")
+                    }
+                }
+
                 Veterinary.writeVeterinariesToFile(veterinaryFileName)
             }
             2 -> {
@@ -62,6 +108,7 @@ fun main() {
                     println("What would you like to do?")
                     println("1. Update veterinary")
                     println("2. Delete veterinary")
+                    println("3. Add specialty")
                     when (readLine()?.toIntOrNull()) {
                         1 -> {
                             println("Enter the attribute number to update (0: name, 1: address, 2: phone number, 3: email): ")
@@ -82,6 +129,45 @@ fun main() {
                             } else {
                                 println("Veterinary not found.")
                             }
+                        }
+                        3 -> {
+                            println("Adding specialty to Veterinary: ${vet.name}")
+                            println("Choose an option:")
+                            println("1. Add a new specialty")
+                            println("2. Add an existing specialty")
+
+                            when (readLine()?.toIntOrNull()) {
+                                1 -> {
+                                    print("Enter specialty name: ")
+                                    val specialtyName = readLine() ?: ""
+                                    print("Enter description: ")
+                                    val description = readLine() ?: ""
+                                    print("Enter start date (yyyy-MM-dd): ")
+                                    val startDate = readLine()?.parseDate() ?: LocalDate.now()
+                                    print("Is it active? (true/false): ")
+                                    val active = readLine()?.toBoolean() ?: true
+                                    print("Enter duration (years): ")
+                                    val duration = readLine()?.toIntOrNull() ?: 0
+
+                                    val specialty = Specialty(specialtyName, description, startDate, active, duration)
+                                    vet.addSpecialty(specialty)
+                                }
+                                2 -> {
+                                    println("List of existing specialties:")
+                                    Specialty.specialtyList.forEachIndexed { index, specialty ->
+                                        println("$index. $specialty")
+                                    }
+                                    print("Enter the index of the specialty to add: ")
+                                    val index = readLine()?.toIntOrNull() ?: -1
+                                    if (index in Specialty.specialtyList.indices) {
+                                        vet.addSpecialty(Specialty.specialtyList[index])
+                                    } else {
+                                        println("Invalid index.")
+                                    }
+                                }
+                                else -> println("Invalid option.")
+                            }
+                            Veterinary.writeVeterinariesToFile(veterinaryFileName)
                         }
                         else -> println("Invalid option.")
                     }
