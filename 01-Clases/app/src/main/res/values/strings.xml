@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">2024ASwGr1ABCJ</string>
+    <string name="saludo">Hello World</string>
+    <string-array name="dias_semana">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+    </string-array>
+    <string name="title_activity_google_maps_inicio">GoogleMapsInicio</string>
 </resources>
