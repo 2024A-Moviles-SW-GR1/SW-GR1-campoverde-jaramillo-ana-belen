@@ -9,7 +9,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.a2024aswgr1vaes.databinding.ActivityGoogleMapsInicioBinding
+import com.example.a2024aswgr1abcj.databinding.ActivityGoogleMapsInicioBinding
 
 class GoogleMapsInicio : AppCompatActivity(), OnMapReadyCallback {
 

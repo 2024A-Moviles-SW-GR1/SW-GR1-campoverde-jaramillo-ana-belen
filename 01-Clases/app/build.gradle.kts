@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+    namespace = "com.example.a2024aswgr1abcj"
     compileSdk = 34
 
     defaultConfig {
