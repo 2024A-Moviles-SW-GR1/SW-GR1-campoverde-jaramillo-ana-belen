@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "619610195401",
+    "project_id": "abcj-swgr1-2022a",
+    "storage_bucket": "abcj-swgr1-2022a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619610195401:android:4c5df9dbe9a619db53d418",
+        "android_client_info": {
+          "package_name": "com.example.android_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU0kIzllqYSYE3HMNbAOJ0KW1jVPcPhD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
