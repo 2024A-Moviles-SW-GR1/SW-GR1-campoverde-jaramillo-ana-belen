@@ -121,7 +121,7 @@ class SqliteHelper(
     ): Boolean {
         val writeDB = writableDatabase
         val valuesToStore = ContentValues()
-        valuesToStore.put("title", title)
+        valuesToStore.put("name", title)
         valuesToStore.put("description", description)
         valuesToStore.put("veterinary_id", veterinary_id)
 
@@ -167,7 +167,7 @@ class SqliteHelper(
     ): Boolean {
         val writeDB = writableDatabase
         val valuesToUpdate = ContentValues()
-        valuesToUpdate.put("title", title)
+        valuesToUpdate.put("name", title)
         valuesToUpdate.put("description", description)
         valuesToUpdate.put("veterinary_id", veterinary_id)
 
