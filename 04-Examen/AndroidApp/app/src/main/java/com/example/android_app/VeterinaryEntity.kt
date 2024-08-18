@@ -7,11 +7,15 @@ class VeterinaryEntity(
     var id: Int,
     var name: String,
     var location: String,
-    var phone: String
+    var phone: String,
+    var latitude: String,
+    var longitude: String
 ): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
+        parcel.readString()!!,
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
@@ -23,6 +27,8 @@ class VeterinaryEntity(
         parcel.writeString(name)
         parcel.writeString(location)
         parcel.writeString(phone)
+        parcel.writeString(latitude)
+        parcel.writeString(longitude)
     }
 
     override fun describeContents(): Int {

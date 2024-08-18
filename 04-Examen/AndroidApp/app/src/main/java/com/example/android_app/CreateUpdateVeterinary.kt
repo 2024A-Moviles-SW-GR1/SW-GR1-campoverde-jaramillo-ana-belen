@@ -16,6 +16,8 @@ class CreateUpdateVeterinary : AppCompatActivity() {
         val name = findViewById<EditText>(R.id.input_veterinary_name)
         val location = findViewById<EditText>(R.id.input_veterinary_location)
         val phone = findViewById<EditText>(R.id.input_veterinary_phone)
+        val latitude = findViewById<EditText>(R.id.latitude)
+        val longitude = findViewById<EditText>(R.id.longitude)
         val selectedVeterinay = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra("selectedVeterinary", VeterinaryEntity::class.java)
         } else {
@@ -23,13 +25,14 @@ class CreateUpdateVeterinary : AppCompatActivity() {
         }
 
         if(selectedVeterinay == null) {
-            // Create an author
             val btnCreateUpdateVeterinary = findViewById<Button>(R.id.btn_create_update_veterinary)
             btnCreateUpdateVeterinary.setOnClickListener{
                 DataBase.tables!!.createVeterinary(
                     name.text.toString(),
                     location.text.toString(),
-                    phone.text.toString()
+                    phone.text.toString(),
+                    latitude.text.toString(),
+                    longitude.text.toString()
                 )
                 goToActivity(MainActivity::class.java)
             }
@@ -37,6 +40,9 @@ class CreateUpdateVeterinary : AppCompatActivity() {
             name.setText(selectedVeterinay.name)
             location.setText(selectedVeterinay.location)
             phone.setText(selectedVeterinay.phone)
+            latitude.setText(selectedVeterinay.latitude)
+            longitude.setText(selectedVeterinay.longitude)
+
 
             // Update an veterinary
             val btnCreateUpdateVeterinary = findViewById<Button>(R.id.btn_create_update_veterinary)
@@ -45,7 +51,9 @@ class CreateUpdateVeterinary : AppCompatActivity() {
                     selectedVeterinay.id,
                     name.text.toString(),
                     location.text.toString(),
-                    phone.text.toString()
+                    phone.text.toString(),
+                    latitude.text.toString(),
+                    longitude.text.toString()
                 )
                 goToActivity(MainActivity::class.java)
             }

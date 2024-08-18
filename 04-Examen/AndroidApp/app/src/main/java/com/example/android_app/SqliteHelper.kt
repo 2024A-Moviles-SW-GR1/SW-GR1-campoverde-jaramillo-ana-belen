@@ -15,7 +15,9 @@ class SqliteHelper(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name VARCHAR(100),
                 location VARCHAR(100),
-                phone VARCHAR(50)
+                phone VARCHAR(50),
+                latitude VARCHAR(50),
+                longitude VARCHAR(50)
             );
         """.trimIndent()
 
@@ -53,7 +55,9 @@ class SqliteHelper(
                         queryResult.getInt(0),
                         queryResult.getString(1),
                         queryResult.getString(2),
-                        queryResult.getString(3)
+                        queryResult.getString(3),
+                        queryResult.getString(4),
+                        queryResult.getString(5)
                     )
                 )
             } while(queryResult.moveToNext())
@@ -96,13 +100,17 @@ class SqliteHelper(
     fun createVeterinary(
         name: String,
         location: String,
-        phone: String
+        phone: String,
+        latitude :String,
+        longitude :String
     ): Boolean {
         val writeDB = writableDatabase
         val valuesToStore = ContentValues()
         valuesToStore.put("name", name)
         valuesToStore.put("location", location)
         valuesToStore.put("phone", phone)
+        valuesToStore.put("latitude", latitude)
+        valuesToStore.put("longitude", longitude)
 
         val storeResult = writeDB.insert(
             "VETERINARY", // Table name
@@ -139,13 +147,17 @@ class SqliteHelper(
         id: Int,
         name: String,
         location: String,
-        phone: String
+        phone: String,
+        latitude :String,
+        longitude :String
     ): Boolean {
         val writeDB = writableDatabase
         val valuesToUpdate = ContentValues()
         valuesToUpdate.put("name", name)
         valuesToUpdate.put("location", location)
         valuesToUpdate.put("phone", phone)
+        valuesToUpdate.put("latitude", latitude)
+        valuesToUpdate.put("longitude", longitude)
 
         val parametersUpdateQuery = arrayOf(id.toString())
         val updateResult = writeDB.update(
